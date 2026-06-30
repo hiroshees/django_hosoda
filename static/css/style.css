@@ -1,3 +1,8 @@
+body {
+    background-color:#FDEBEB ;
+    color:#370606 ;
+    
+}
 ul.errorlist {
     padding : 10px;
     background-color: red;

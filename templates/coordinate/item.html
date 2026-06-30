@@ -1,0 +1,27 @@
+<div class="col">
+    <div class="cloth-card-custom d-flex flex-column justify-content-between h-100">
+        <div>
+            <div class="img-container-custom">
+                {% if item.image %}
+                <img src="{{item.image.url }}" class="img-custom" />
+                {% else %}
+                <div class="w-100 h-100 d-flex flex-column align-items-center justify-content-center">
+                    <span>
+                        no image
+                    </span>
+                </div>
+                {% endif %}
+                {% include "coordinate/item_category.html" with item=item %}
+                {% include "coordinate/item_season.html" with item=item %}
+            </div>
+            <div class="text-center mt-2">
+                <div class="text-name-custom px-1 ">
+                    <span class="text-id-custom">
+                        {{ item.id }}
+                    </span>
+                    {{ item.name }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

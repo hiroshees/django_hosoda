@@ -1,0 +1,22 @@
+<div class="position-absolute" style="top:8px; left:8px;">
+    <span class="d-flex align-items-center gap-1 badge-category-custom fs-6">
+        <span>
+            {% if item.category == 'tops' %}
+            👚
+            {% elif item.category == 'bottoms' %}
+            👖
+            {% elif item.category == 'onepiece' %}
+            👗
+            {% elif item.category == 'onepiece-tops' %}
+            👗👚
+            {% elif item.category == 'shoes' %}
+            👠
+            {% elif item.category == 'hair' %}
+            💇‍♀️
+            {% endif %}
+        </span>
+        <span>
+            {{ item.get_category_display }}
+        </span>
+    </span>
+</div>

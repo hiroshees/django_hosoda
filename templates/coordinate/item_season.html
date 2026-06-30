@@ -1,0 +1,20 @@
+<div class="position-absolute" style="bottom:8px; right:8px;">
+    <span class="d-flex align-items-center gap-1 badge-category-custom fs-6">
+        <span>
+            {% if item.season == 'spring' %}
+            🌸
+            {% elif item.season == 'summer' %}
+            🌻
+            {% elif item.season == 'autumn' %}
+            🍂
+            {% elif item.season == 'winter' %}
+            ☃
+            {% elif item.season == 'all' %}
+            🌟
+            {% endif %}
+        </span>
+        <span>
+            {{item.get_season_display}}
+        </span>
+    </span>
+</div>

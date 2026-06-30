@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#E98585">
   <div class="container">
-    <a class="navbar-brand" href="/">〇〇〇〇</a>
+    <a class="navbar-brand" href="{% url 'coordinate:dashboard' %}" style="color:#FDEBEB">Today's coordination</a>
     <button 
       class="navbar-toggler" 
       type="button" 
@@ -12,18 +12,5 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            ユーザ
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{% url 'account_login'%}">ログイン</a></li>
-            <li><a class="dropdown-item" href="{% url 'account_signup'%}">新規ユーザ作成</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
   </div>
 </nav>

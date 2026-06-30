@@ -1,5 +1,3 @@
-{% load account %}
-
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#E98585">
   <div class="container">
     <a class="navbar-brand" href="{% url 'coordinate:dashboard' %}" style="color:#FDEBEB">Today's coordination</a>
@@ -18,11 +16,11 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {% user_display user %}
+            ユーザ
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{% url 'account_change_password'%}">パスワード変更</a></li>
-            <li><a class="dropdown-item" href="{% url 'account_logout'%}">ログアウト</a></li>
+            <li><a class="dropdown-item" href="{% url 'account_login'%}">ログイン</a></li>
+            <li><a class="dropdown-item" href="{% url 'account_signup'%}">新規ユーザ作成</a></li>
           </ul>
         </li>
       </ul>

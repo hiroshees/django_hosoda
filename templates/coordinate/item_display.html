@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% load django_bootstrap5 %}
+
+{% block title%}{{ title }}{% endblock %}
+
+{% block content %}
+<style>
+/* タイトル部分：一覧画面と統一 */
+.closet-title-box {
+    background-color: #ffffff;
+    border: 1px solid #E8E4DF;
+    border-radius: 1.5rem !important;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+.closet-title-text {
+    font-weight: bold;
+    color: #ff7675;
+    margin: 0;
+}
+/* 衣類カード：一覧画面のデザインを完全コピー */
+.cloth-card-custom {
+    background-color: #ffffff;
+    border: 1px solid #E8E4DF;
+    border-radius: 1.5rem !important; /* rounded-3xl */
+    padding: 14px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease-in-out;
+}
+.cloth-card-custom:hover {
+    border-color: #8B7E74;
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+}
+/* 画像コンテナ */
+.img-container-custom {
+    aspect-ratio: 1 / 1;
+    background-color: #F5F5F0;
+    border: 1px solid rgba(232, 228, 223, 0.6);
+    border-radius: 1rem !important; /* rounded-2xl */
+    overflow: hidden;
+    position: relative;
+}
+.img-custom {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s ease-in-out;
+}
+.img-container-custom:hover .img-custom {
+    transform: scale(1.03);
+}
+/* カテゴリ・季節バッジ */
+.badge-category-custom {
+    font-size: 11px !important;
+    font-weight: bold;
+    padding: 6px 10px;
+    background-color: rgba(74, 67, 63, 0.85);
+    color: #ffffff;
+    border-radius: 10px;
+    backdrop-blur: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+/* アイテム名表示 */
+.text-name-custom {
+    color: #4A433F;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.6rem;
+    margin-top: 8px;
+}
+.text-id-custom {
+    font-size: 0.75rem;
+    color: #A99F96;
+    display: block;
+    margin-bottom: 2px;
+}
+</style>
+
+<div class="container mt-4 mb-4">
+    
+    {% include "coordinate/item_header.html" with selected_season=selected_season %}
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 g-sm-4 justify-content-center">
+    {% if proposed_hair %}
+        {% include "coordinate/item.html" with item=proposed_hair %}
+    {% endif %}
+    
+    {% if proposed_pattern == "separate" %}
+        {% if proposed_tops %}
+            {% include "coordinate/item.html" with item=proposed_tops %}
+        {% endif %}
+        {% if proposed_bottoms %}
+            {% include "coordinate/item.html" with item=proposed_bottoms %}
+        {% endif %}
+    {% else %}
+        {% if proposed_onepiece %}
+            {% include "coordinate/item.html" with item=proposed_onepiece %}
+        {% endif %}
+        {% if proposed_onepiece_tops %}
+            {% include "coordinate/item.html" with item=proposed_onepiece_tops %}
+        {% endif %}
+    {% endif %}
+    
+    {% if proposed_shoes %}
+        {% include "coordinate/item.html" with item=proposed_shoes %}
+    {% endif %}
+    </div>
+</div>
+{% endblock %}
+

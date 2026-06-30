@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title%}{{ title }}{% endblock %}
+
+{% block content %}
+<style>
+/* ウェルカムメッセージのボックス */
+.welcome-box {
+	background-color: #ffffff;
+	border: 1px solid #E8E4DF;
+	border-radius: 1.5rem !important;
+	padding: 30px;
+	box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+	text-align: center;
+}
+.welcome-title {
+	font-weight: bold;
+	color: #ff7675;
+	margin-bottom: 8px;
+}
+
+/* メニューカードの基本スタイル */
+	.menu-card-custom {
+	background-color: #ffffff;
+	border: 1px solid #E8E4DF;
+	border-radius: 2rem !important; /* より丸みを持たせて可愛く */
+	padding: 30px 20px;
+	box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.04);
+	text-align: center;
+	text-decoration: none !important; /* リンクの下線を消す */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	transition: all 0.25rem ease-in-out;
+}
+
+/* クローゼットボタンのホバー（水色系） */
+.menu-closet:hover {
+border-color: #74b9ff;
+transform: translateY(-5px);
+box-shadow: 0 0.75rem 1.5rem rgba(116, 185, 255, 0.15);
+}
+
+/* コーデ提案ボタンのホバー（ピンク系） */
+.menu-coordinate:hover {
+	border-color: #ff7675;
+	transform: translateY(-5px);
+	box-shadow: 0 0.75rem 1.5rem rgba(255, 118, 117, 0.15);
+}
+
+/* 特大絵文字アイコンのコンテナ */
+.menu-icon-wrapper {
+	width: 90px;
+	height: 90px;
+	border-radius: 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 3rem;
+	margin-bottom: 20px;
+	transition: transform 0.3s ease;
+}
+.menu-closet .menu-icon-wrapper {
+	background-color: #e3f2fd;
+}
+.menu-coordinate .menu-icon-wrapper {
+	background-color: #ffeef0;
+}
+/* ホバーした時に絵文字がピコッと動くアニメーション */
+.menu-card-custom:hover .menu-icon-wrapper {
+	transform: scale(1.1) rotate(5deg);
+}
+/* ボタン内の文字スタイル */
+.menu-text-title {
+	font-size: 1.3rem;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+.menu-closet .menu-text-title {
+	color: #2d3436;
+}
+.menu-coordinate .menu-text-title {
+	color: #2d3436;
+}
+.menu-text-sub {
+	font-size: 0.85rem;
+	color: #b2bec3;
+	margin: 0;
+}
+</style>
+
+<div class="container mt-5 mb-5">
+    <div class="welcome-box mb-5" >
+        <h1 class="welcome-title">🎀 今日のコーディネート 🎀</h1>
+        <div class="text-mutied m-0 small">
+            あなたのクローゼットから服をチョイス！
+        </div>
+    </div>
+    
+    <div class="row justify-content-center g-4">
+        <div class="col-sm-6 col-md-5">
+            <a href="{% url 'coordinate:closet' %}" class="menu-card-custom menu-closet">
+                <div class="menu-icon-wrapper"> 🪞 </div>
+                <h3 class="menu-text-title">クローゼット</h3>
+                <div class="menu-text-sub">服の登録しよう</div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-md-5">
+            <a href="{% url 'coordinate:item_display' %}" class="menu-card-custom menu-coordinate">
+                <div class="menu-icon-wrapper"> 👗 </div>
+                <h3 class="menu-text-title">今日のコーディネート</h3>
+                <div class="menu-text-sub">季節に合わせてコーディネートするよ</div>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
