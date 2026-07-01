@@ -43,11 +43,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+        
     'django_bootstrap5',
     
     'django.contrib.sites',
     
+    # cloudinaryの追加
+    'cloudinary',
+    'cloudinary_storage',
+    # 'django_cleanup.apps.CleanupConfig',
+        
     # 'allauth',
     # 'allauth.account',
     # 'allauth.socialaccount',
@@ -226,4 +231,13 @@ if RENDER:
         "whitenoise.middleware.WhiteNoiseMiddleware",    
     ]
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-    
+
+if not DEBUG:
+    MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+else:
+    CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': env.str('CLOUDINARY_CLOUD_NAME'),
+        'API_KEY': env.str('CLOUDINARY_API_KEY'),
+        'API_SECRET': env.str('CLOUDINARY_API_SECRET'),
+    }
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
