@@ -232,7 +232,7 @@ if RENDER:
     ]
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-if not DEBUG:
+if DEBUG:
     MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 else:
     CLOUDINARY_STORAGE = {
